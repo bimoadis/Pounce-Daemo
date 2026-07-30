@@ -93,6 +93,15 @@ export function TokenGenerator() {
 }
 
 function TicketCard({ token }: { token: Token }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    const textToCopy = `${token.tagline ? token.tagline + ' — ' : ''}${token.description}\n\n${token.lore}`;
+    navigator.clipboard.writeText(textToCopy);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <FadeUp className="relative mt-12 overflow-hidden rounded-2xl border border-line bg-[#151922]">
       {/* perforated ticket-stub edge */}
@@ -123,14 +132,26 @@ function TicketCard({ token }: { token: Token }) {
             {token.lore}
           </p>
 
-          <a
-            href={token.pumpUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-paper px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-ink transition hover:bg-amber"
-          >
-            Launch on pump.fun →
-          </a>
+          <div className="mt-8 flex flex-wrap gap-3 items-center">
+            <a
+              href={token.pumpUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit items-center gap-2 rounded-full bg-paper px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-ink transition hover:bg-amber"
+            >
+              Launch on pump.fun →
+            </a>
+            <button
+              onClick={handleCopy}
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-white transition-all duration-300"
+            >
+              <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              {copied ? 'Copied!' : 'Copy Desc'}
+            </button>
+          </div>
         </div>
 
         <VibeGauge score={token.vibeScore} />

@@ -6,8 +6,9 @@
 
 const getBaseUrl = () => {
   const base = process.env.MEGALLM_BASE_URL;
-  if (!base) return 'https://ai.megallm.io/v1/chat/completions';
+  if (!base) return 'https://token-plan-sgp.xiaomimimo.com/v1/chat/completions';
   if (base.endsWith('/chat/completions') || base.endsWith('/messages')) return base;
+  if (base.endsWith('/v1')) return `${base}/chat/completions`;
   return `${base}/v1/chat/completions`;
 };
 const MEGALLM_URL = getBaseUrl();
@@ -105,14 +106,24 @@ export async function generateToken(idea) {
 
   const llmResult = await callMegaLLM(idea.trim());
 
+  const tickerClean = normalizeTicker(llmResult.ticker);
+  const nameClean = llmResult.name || 'Unnamed Token';
+  const taglineClean = llmResult.tagline || '';
+  const descriptionClean = llmResult.description || '';
+  const loreClean = llmResult.lore || '';
+
+  const params = new URLSearchParams();
+  params.append('name', nameClean);
+  params.append('symbol', tickerClean.replace('$', ''));
+
   const token = {
-    ticker: normalizeTicker(llmResult.ticker),
-    name: llmResult.name || 'Unnamed Token',
-    tagline: llmResult.tagline || '',
-    description: llmResult.description || '',
-    lore: llmResult.lore || '',
+    ticker: tickerClean,
+    name: nameClean,
+    tagline: taglineClean,
+    description: descriptionClean,
+    lore: loreClean,
     vibeScore: clampVibeScore(llmResult.vibeScore),
-    pumpUrl: PUMP_FUN_CREATE_URL,
+    pumpUrl: `${PUMP_FUN_CREATE_URL}?${params.toString()}`,
     generatedFrom: idea.trim(),
   };
 

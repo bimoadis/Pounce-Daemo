@@ -48,7 +48,7 @@ async function callMegaLLM(idea) {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'gpt-4o-mini',
+      model: 'mimo-v2.5-pro',
       temperature: 0.9,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },

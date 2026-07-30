@@ -10,6 +10,9 @@ type Token = {
   vibeScore: number;
   pumpUrl: string;
   generatedFrom: string;
+  logoPrompt?: string;
+  brandColors?: string[];
+  marketingHook?: string;
 };
 
 export function TokenGenerator() {
@@ -128,9 +131,86 @@ function TicketCard({ token }: { token: Token }) {
             {token.description}
           </p>
 
-          <p className="mt-4 max-w-lg font-display text-sm italic leading-relaxed text-paper/60">
+          <p className="mt-4 max-w-lg font-display text-sm italic leading-relaxed text-paper/60 whitespace-pre-wrap">
             {token.lore}
           </p>
+
+          {/* Launch Branding Kit Section */}
+          {(token.logoPrompt || token.brandColors || token.marketingHook) && (
+            <div className="mt-8 border-t border-line/40 pt-8 max-w-lg">
+              <h4 className="font-mono text-xs font-semibold uppercase tracking-widest text-amber">
+                Launch Branding Kit
+              </h4>
+              
+              {/* Slogan */}
+              {token.marketingHook && (
+                <div className="mt-4 rounded-xl bg-white/5 border border-white/10 p-4">
+                  <div className="flex justify-between items-start gap-2">
+                    <div>
+                      <span className="font-mono text-[10px] uppercase text-paper/40">Viral Tweet/Hook</span>
+                      <p className="mt-1 text-sm font-medium text-paper">{token.marketingHook}</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(token.marketingHook || '');
+                        alert('Copied slogan!');
+                      }}
+                      className="text-paper/40 hover:text-paper transition p-1"
+                      title="Copy Slogan"
+                    >
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Brand Colors */}
+              {token.brandColors && token.brandColors.length > 0 && (
+                <div className="mt-4 flex items-center gap-3">
+                  <span className="font-mono text-[10px] uppercase text-paper/40">Brand Colors:</span>
+                  <div className="flex items-center gap-2">
+                    {token.brandColors.map((color, index) => (
+                      <div key={index} className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs">
+                        <span
+                          className="h-2.5 w-2.5 rounded-full border border-white/20"
+                          style={{ backgroundColor: color }}
+                        />
+                        <span className="font-mono text-[10px] text-paper/70 uppercase">{color}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Logo Prompt */}
+              {token.logoPrompt && (
+                <div className="mt-4 rounded-xl bg-white/5 border border-white/10 p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="font-mono text-[10px] uppercase text-paper/40">Midjourney / DALL-E Logo Prompt</span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(token.logoPrompt || '');
+                        alert('Copied Logo Prompt!');
+                      }}
+                      className="inline-flex items-center gap-1 text-[10px] font-mono text-amber hover:underline transition"
+                    >
+                      <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                      </svg>
+                      Copy Prompt
+                    </button>
+                  </div>
+                  <p className="text-xs font-mono leading-relaxed text-paper/70 bg-black/40 rounded-lg p-3 border border-white/5 select-all">
+                    {token.logoPrompt}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="mt-8 flex flex-wrap gap-3 items-center">
             <a

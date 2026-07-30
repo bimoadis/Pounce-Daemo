@@ -14,31 +14,35 @@ const getBaseUrl = () => {
 const MEGALLM_URL = getBaseUrl();
 const PUMP_FUN_CREATE_URL = 'https://pump.fun/create';
 
-const SYSTEM_PROMPT = `You are a veteran pump.fun token strategist and copywriter.
-Given a short idea from a user, invent ONE original memecoin concept inspired by it.
+const SYSTEM_PROMPT = `You are a veteran pump.fun token strategist, copywriter, and brand designer.
 
-You must respond with PURE JSON and NOTHING ELSE — no markdown fences, no preamble,
-no trailing commentary. The JSON object must have exactly these keys:
+TASK
+Given a short idea from the user, invent ONE original memecoin concept inspired by it. Be creative, funny, and on-trend with current crypto/meme culture — avoid generic or bland naming.
+
+You must respond with PURE JSON and NOTHING ELSE. The JSON object must have exactly these keys:
 
 {
   "ticker": string,      // token symbol, ALWAYS starting with "$", max 10 chars, uppercase, no spaces
   "name": string,        // full token name, punchy, max 4 words
   "tagline": string,     // under 8 words, no ending period
   "description": string, // 2-3 sentences, pump.fun-style hype copy, no hashtags, no emojis
-  "lore": string,        // exactly 1 sentence of backstory/mythology for the token
-  "vibeScore": number    // integer from 1 to 10 rating how "pump.fun-able" the concept is
+  "lore": string,        // A rich, deep, and engaging backstory/mythology of the token (2-3 paragraphs, use \\n\\n for paragraph breaks)
+  "vibeScore": number,   // integer from 1 to 10 rating how "pump.fun-able" the concept is
+  "logoPrompt": string,  // A detailed Midjourney/DALL-E ready image generation prompt to create the token's logo/emblem
+  "brandColors": string[], // Array of exactly 2 suggested brand color hex codes matching the theme
+  "marketingHook": string // A highly viral, tweetable slogan or marketing hook under 120 characters
 }
 
-Rules:
-- Never reuse the literal words from the user's idea as the ticker; transform them into something memorable.
-- Keep everything safe-for-work and free of real public figures' names.
-- Do not promise financial returns, price predictions, or investment advice anywhere in the copy.
-- Output must be valid JSON parsable by JSON.parse with no surrounding text.`;
+OUTPUT RULES (STRICT)
+- Respond with PURE JSON only. No markdown code fences, no \`\`\`json, no explanations, no text before or after the JSON.
+- The JSON must be a single valid object, parseable by JSON.parse().
+- Do not add, remove, or rename any keys. Do not add trailing commas.
+- All string values must escape internal quotes and newlines properly (use \\n\\n for line breaks inside "lore").`;
 
 /**
  * Calls the MegaLLM chat completions endpoint and asks for a strict JSON reply.
  * @param {string} idea - free-text idea from the user
- * @returns {Promise<{ticker:string,name:string,tagline:string,description:string,lore:string,vibeScore:number}>}
+ * @returns {Promise<{ticker:string,name:string,tagline:string,description:string,lore:string,vibeScore:number,logoPrompt:string,brandColors:string[],marketingHook:string}>}
  */
 async function callMegaLLM(idea) {
   const apiKey = process.env.MEGALLM_API_KEY;
@@ -125,6 +129,11 @@ export async function generateToken(idea) {
     vibeScore: clampVibeScore(llmResult.vibeScore),
     pumpUrl: `${PUMP_FUN_CREATE_URL}?${params.toString()}`,
     generatedFrom: idea.trim(),
+    logoPrompt: llmResult.logoPrompt || '',
+    brandColors: Array.isArray(llmResult.brandColors) && llmResult.brandColors.length >= 2
+      ? llmResult.brandColors.slice(0, 2)
+      : ['#FF5733', '#1A1D20'],
+    marketingHook: llmResult.marketingHook || '',
   };
 
   return token;

@@ -1,0 +1,4 @@
+mcp_servers:
+  - name: "pump-fun"
+    url: "https://mcp.pumpmcp.fun/sse"
+    type: http

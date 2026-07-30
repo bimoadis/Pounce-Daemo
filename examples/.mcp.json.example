@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pump-fun": {
+      "type": "http",
+      "url": "https://mcp.pumpmcp.fun/sse"
+    }
+  }
+}

@@ -4,7 +4,13 @@
 // and the Vercel serverless function (api/generate.js). Keeping it in one
 // place means "npm run dev" and a real deployment behave identically.
 
-const MEGALLM_URL = 'https://ai.megallm.io/v1/chat/completions';
+const getBaseUrl = () => {
+  const base = process.env.MEGALLM_BASE_URL;
+  if (!base) return 'https://ai.megallm.io/v1/chat/completions';
+  if (base.endsWith('/chat/completions') || base.endsWith('/messages')) return base;
+  return `${base}/v1/chat/completions`;
+};
+const MEGALLM_URL = getBaseUrl();
 const PUMP_FUN_CREATE_URL = 'https://pump.fun/create';
 
 const SYSTEM_PROMPT = `You are a veteran pump.fun token strategist and copywriter.
@@ -48,7 +54,7 @@ async function callMegaLLM(idea) {
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'mimo-v2.5-pro',
+      model: process.env.MEGALLM_MODEL || 'mimo-v2.5-pro',
       temperature: 0.9,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },

@@ -18,10 +18,8 @@ export function Navbar({ route, onNavigate }: { route: Route; onNavigate: (r: Ro
           onClick={() => onNavigate('home')}
           className="flex items-center gap-2 font-display text-sm font-bold tracking-wider text-white uppercase shrink-0"
         >
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-white text-black font-extrabold shadow-md">
-            <svg className="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-            </svg>
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-transparent overflow-hidden">
+            <img src="/logo.svg" alt="Tickerlab Logo" className="h-full w-full object-contain" />
           </div>
           <span className="tracking-[0.25em] font-extrabold text-xs hidden sm:inline">TICKERLAB</span>
         </button>

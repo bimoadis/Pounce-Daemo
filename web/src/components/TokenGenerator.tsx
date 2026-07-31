@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 import { FadeUp } from './FadeUp';
 
 type Token = {
@@ -20,6 +20,12 @@ export function TokenGenerator() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle');
   const [error, setError] = useState('');
   const [token, setToken] = useState<Token | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+
+  const showToast = (message: string) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 2500);
+  };
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -83,19 +89,61 @@ export function TokenGenerator() {
           </form>
         </FadeUp>
 
+        {status === 'loading' && (
+          <FadeUp className="relative mt-12 overflow-hidden rounded-2xl border border-line bg-[#151922] p-8 md:p-10">
+            <div className="flex flex-col gap-6">
+              {/* Pulsing loading header */}
+              <div className="flex items-center gap-3">
+                <div className="h-5 w-16 rounded bg-white/10 animate-pulse" />
+                <div className="h-5 w-36 rounded bg-white/10 animate-pulse" />
+              </div>
+              
+              {/* Skeleton content lines */}
+              <div className="space-y-3">
+                <div className="h-3 w-3/4 rounded bg-white/5 animate-pulse" />
+                <div className="h-3 w-1/2 rounded bg-white/5 animate-pulse" />
+                <div className="h-3 w-5/6 rounded bg-white/5 animate-pulse" />
+              </div>
+
+              {/* Holographic scanning terminal console */}
+              <div className="rounded-xl border border-white/10 bg-black/40 p-4 font-mono text-[11px] leading-relaxed text-amber/80">
+                <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2">
+                  <span className="h-2 w-2 rounded-full bg-amber animate-ping" />
+                  <span className="text-[10px] text-paper/40 uppercase tracking-widest">Tickerlab AI Engine</span>
+                </div>
+                <LoadingLogs />
+              </div>
+            </div>
+          </FadeUp>
+        )}
+
         {error && (
           <p className="mt-6 rounded-lg border border-coral/40 bg-coral/10 px-4 py-3 font-mono text-sm text-coral">
             {error}
           </p>
         )}
 
-        {token && <TicketCard token={token} />}
+        {token && <TicketCard token={token} onShowToast={showToast} />}
       </div>
+
+      {toast && (
+        <div 
+          className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full border border-white/10 bg-[#151922]/95 px-6 py-3 font-mono text-xs text-amber shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-2"
+          style={{
+            animation: 'slideUpFadeIn 0.3s ease-out forwards',
+          }}
+        >
+          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          {toast}
+        </div>
+      )}
     </section>
   );
 }
 
-function TicketCard({ token }: { token: Token }) {
+function TicketCard({ token, onShowToast }: { token: Token; onShowToast: (message: string) => void }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -103,6 +151,7 @@ function TicketCard({ token }: { token: Token }) {
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+    onShowToast('Concept description copied!');
   };
 
   return (
@@ -153,7 +202,7 @@ function TicketCard({ token }: { token: Token }) {
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(token.marketingHook || '');
-                        alert('Copied slogan!');
+                        onShowToast('Marketing slogan copied!');
                       }}
                       className="text-paper/40 hover:text-paper transition p-1"
                       title="Copy Slogan"
@@ -193,7 +242,7 @@ function TicketCard({ token }: { token: Token }) {
                     <button
                       onClick={() => {
                         navigator.clipboard.writeText(token.logoPrompt || '');
-                        alert('Copied Logo Prompt!');
+                        onShowToast('Logo generator prompt copied!');
                       }}
                       className="inline-flex items-center gap-1 text-[10px] font-mono text-amber hover:underline transition"
                     >
@@ -255,6 +304,39 @@ function VibeGauge({ score }: { score: number }) {
           style={{ width: `${pct}%` }}
         />
       </div>
+    </div>
+  );
+}
+
+function LoadingLogs() {
+  const steps = [
+    'Initializing secure handshakes...',
+    'Scouting current meme culture indexes...',
+    'Consulting Tickerlab AI Engine (mimo-v2.5-pro)...',
+    'Synthesizing brand colors & visual style guides...',
+    'Drafting viral tweet copy & marketing hooks...',
+    'Forging token name and ticker symbols...',
+    'Wrapping package into launch-ready branding kit...'
+  ];
+  const [currentStep, setCurrentStep] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStep((prev) => (prev < steps.length - 1 ? prev + 1 : prev));
+    }, 1200);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="space-y-1">
+      {steps.slice(0, currentStep + 1).map((step, index) => (
+        <div key={index} className="flex gap-2">
+          <span className="text-paper/30">&gt;</span>
+          <span className={index === currentStep ? 'text-amber animate-pulse' : 'text-paper/60'}>
+            {step}
+          </span>
+        </div>
+      ))}
     </div>
   );
 }

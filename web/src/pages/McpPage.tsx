@@ -10,7 +10,7 @@ export function McpPage() {
           MCP servers
         </FadeUp>
         <FadeUp as="p" delay={0.05} className="mt-3 font-sans text-sm text-white/60 max-w-xl leading-relaxed">
-          Connect your agents directly to Tickerlab and Solana data sources. MCP server configurations allow any AI client to talk to Tickerlab systems.
+          Connect your agents directly to Pounce Daemon and Solana data sources. MCP server configurations allow any AI client to talk to Pounce Daemon systems.
         </FadeUp>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2">

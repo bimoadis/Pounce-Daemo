@@ -11,7 +11,7 @@ const ITEMS: { n: string; title: string; body: string; route: Route }[] = [
   {
     n: '02',
     title: 'Tools',
-    body: 'Standalone utilities for token builders — description audits, launch threads, image prompts, reply strategy.',
+    body: 'Standalone utilities for token builders: description audits, launch threads, image prompts, reply strategy.',
     route: 'tools',
   },
   {
@@ -23,7 +23,7 @@ const ITEMS: { n: string; title: string; body: string; route: Route }[] = [
   {
     n: '04',
     title: 'Bundles & MCP',
-    body: 'Full workflows in one install, plus MCP server configs so any AI client can talk to Tickerlab directly.',
+    body: 'Full workflows in one install, plus MCP server configs so any AI client can talk to Pounce Daemon directly.',
     route: 'bundles',
   },
 ];
@@ -33,7 +33,7 @@ export function DirectoryOverview({ onNavigate }: { onNavigate: (r: Route) => vo
     <section className="relative z-10 bg-ink px-6 py-20 md:px-12">
       <div className="mx-auto max-w-3xl">
         <FadeUp as="p" className="font-mono text-xs uppercase tracking-widest text-paper/40">
-          What's in Tickerlab
+          What's in Pounce Daemon
         </FadeUp>
         <div className="mt-6 divide-y divide-line border-y border-line">
           {ITEMS.map((item, i) => (

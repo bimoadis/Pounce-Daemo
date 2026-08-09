@@ -12,11 +12,11 @@ export type McpServerCard = {
 // directory could host. Not a live registry.
 export const MCP_SERVERS: McpServerCard[] = [
   {
-    id: 'tickerlab-mcp',
-    namespace: 'tickerlab/mcp',
-    name: 'tickerlab-mcp',
+    id: 'pounce-daemon-mcp',
+    namespace: 'pounce-daemon/mcp',
+    name: 'pounce-daemon-mcp',
     description:
-      'Connect Claude Code to Tickerlab. Generate token concepts, get a vibe score, and receive a pre-filled launch URL — all from your terminal.',
+      'Connect Claude Code to Pounce Daemon. Generate token concepts, get a vibe score, and receive a pre-filled launch URL, all from your terminal.',
     tools: ['forge_generate', 'forge_trending', 'forge_launch'],
     hot: true,
     stars: 2400,

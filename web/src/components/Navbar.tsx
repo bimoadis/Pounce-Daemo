@@ -19,9 +19,9 @@ export function Navbar({ route, onNavigate }: { route: Route; onNavigate: (r: Ro
           className="flex items-center gap-0 font-display text-sm font-bold tracking-wider text-white uppercase shrink-0"
         >
           <div className="relative flex h-[52px] w-[52px] items-center justify-center rounded-lg bg-transparent overflow-hidden">
-            <img src="/logo.png" alt="Tickerlab Logo" className="h-full w-full object-contain" />
+            <img src="/logo.png" alt="Pounce Daemon Logo" className="h-full w-full object-contain" />
           </div>
-          <span className="tracking-[0.25em] font-extrabold text-xs hidden sm:inline">TICKERLAB</span>
+          <span className="tracking-[0.25em] font-extrabold text-xs hidden sm:inline">POUNCE DAEMON</span>
         </button>
 
         {/* Center Pill Menu */}
@@ -60,6 +60,15 @@ export function Navbar({ route, onNavigate }: { route: Route; onNavigate: (r: Ro
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
             </svg>
             Github
+          </a>
+
+          <a
+            href="https://pump.fun"
+            target="_blank"
+            rel="noreferrer"
+            className="bg-amber text-black hover:bg-neutral-200 border border-transparent px-4 py-2 md:px-5 md:py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02]"
+          >
+            Buy $PNCE
           </a>
 
           <button

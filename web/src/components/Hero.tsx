@@ -48,6 +48,14 @@ export function Hero() {
             maxWidth: 720,
           }}
         >
+          <FadeUp
+            delay={0.05}
+            y={12}
+          >
+            <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-amber/30 bg-amber/10 px-3 py-1 font-mono text-[10px] md:text-xs uppercase tracking-widest text-amber">
+              <span>Official Token: $PNCE</span>
+            </div>
+          </FadeUp>
           <h2
             style={{
               display: 'flex',

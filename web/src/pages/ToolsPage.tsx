@@ -10,7 +10,7 @@ export function ToolsPage() {
           Tools
         </FadeUp>
         <FadeUp as="p" delay={0.05} className="mt-3 font-sans text-sm text-white/60 max-w-xl leading-relaxed">
-          Standalone utilities for token builders — description audits, launch threads, image prompts, and reply strategies. No setup required.
+          Standalone utilities for token builders: description audits, launch threads, image prompts, and reply strategies. No setup required.
         </FadeUp>
 
         <FadeUp delay={0.1} className="mt-12">

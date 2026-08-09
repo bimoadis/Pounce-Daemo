@@ -7,8 +7,8 @@
     "web"
   ],
   "scripts": {
-    "build": "npm run build --workspace tickerlab",
-    "dev": "npm run dev --workspace tickerlab",
-    "start": "npm run preview --workspace tickerlab"
+    "build": "npm run build --workspace pounce-daemon",
+    "dev": "npm run dev --workspace pounce-daemon",
+    "start": "npm run preview --workspace pounce-daemon"
   }
 }

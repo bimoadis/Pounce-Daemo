@@ -15,7 +15,7 @@ export type SkillCard = {
 export const SKILLS: SkillCard[] = [
   {
     id: 'forge-generate',
-    namespace: 'tickerlab/tools',
+    namespace: 'pounce-daemon/tools',
     name: 'forge-generate',
     description: 'Generate a token from any idea. Returns ticker, name, lore, description, vibe score, and a launch URL.',
     tags: ['tokens', 'generator'],
@@ -26,7 +26,7 @@ export const SKILLS: SkillCard[] = [
   },
   {
     id: 'forge-narrative',
-    namespace: 'tickerlab/tools',
+    namespace: 'pounce-daemon/tools',
     name: 'forge-narrative',
     description: 'Write a complete launch thread for any token. 7-post structure: hook, lore, credibility layer, proof, CTA.',
     tags: ['narrative', 'social'],
@@ -36,7 +36,7 @@ export const SKILLS: SkillCard[] = [
   },
   {
     id: 'forge-audit',
-    namespace: 'tickerlab/tools',
+    namespace: 'pounce-daemon/tools',
     name: 'forge-audit',
     description: 'Audit a token description for quality: hook strength, clarity, cultural grounding, and best-practice fit.',
     tags: ['tokens', 'quality'],
@@ -46,7 +46,7 @@ export const SKILLS: SkillCard[] = [
   },
   {
     id: 'forge-image-prompt',
-    namespace: 'tickerlab/tools',
+    namespace: 'pounce-daemon/tools',
     name: 'forge-image-prompt',
     description: 'Generate optimized image prompts for a token logo and banner, formatted for common AI image tools.',
     tags: ['image', 'tokens'],
@@ -55,7 +55,7 @@ export const SKILLS: SkillCard[] = [
   },
   {
     id: 'dev-meme-token',
-    namespace: 'tickerlab/collections',
+    namespace: 'pounce-daemon/collections',
     name: 'dev-meme-token',
     description: 'Generate tokens from developer culture: changelogs, ship-it energy, standup jokes. Built for the technical degen.',
     tags: ['tokens', 'dev', 'lore'],
@@ -64,9 +64,9 @@ export const SKILLS: SkillCard[] = [
   },
   {
     id: 'claude-md-forge',
-    namespace: 'tickerlab/dev-tools',
+    namespace: 'pounce-daemon/dev-tools',
     name: 'claude-md-forge',
-    description: 'Optimize your CLAUDE.md file for Tickerlab workflows. Adds tool configs, skill references, and launch shortcuts.',
+    description: 'Optimize your CLAUDE.md file for Pounce Daemon workflows. Adds tool configs, skill references, and launch shortcuts.',
     tags: ['dev', 'tokens'],
     stars: 430,
     category: 'dev',
@@ -82,7 +82,7 @@ export const SKILLS: SkillCard[] = [
   },
   {
     id: 'robot-companion-lore',
-    namespace: 'tickerlab/collections',
+    namespace: 'pounce-daemon/collections',
     name: 'robot-companion-lore',
     description: 'A full lore package for robot-companion token concepts, covering backstory, tone, and narrative hooks.',
     tags: ['lore', 'narrative'],

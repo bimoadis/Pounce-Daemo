@@ -62,7 +62,7 @@ export function TokenGenerator() {
           delay={0.1}
           className="mt-3 max-w-xl font-mono text-sm leading-relaxed text-paper/60"
         >
-          One sentence is enough — a mood, a meme, a headline. Tickerlab turns it into a full
+          One sentence is enough: a mood, a meme, a headline. Pounce Daemon turns it into a full
           token concept: ticker, name, tagline, description, and a one-line piece of lore.
         </FadeUp>
 
@@ -97,7 +97,7 @@ export function TokenGenerator() {
                 <div className="h-5 w-16 rounded bg-white/10 animate-pulse" />
                 <div className="h-5 w-36 rounded bg-white/10 animate-pulse" />
               </div>
-              
+
               {/* Skeleton content lines */}
               <div className="space-y-3">
                 <div className="h-3 w-3/4 rounded bg-white/5 animate-pulse" />
@@ -109,7 +109,7 @@ export function TokenGenerator() {
               <div className="rounded-xl border border-white/10 bg-black/40 p-4 font-mono text-[11px] leading-relaxed text-amber/80">
                 <div className="flex items-center gap-2 mb-2 border-b border-white/5 pb-2">
                   <span className="h-2 w-2 rounded-full bg-amber animate-ping" />
-                  <span className="text-[10px] text-paper/40 uppercase tracking-widest">Tickerlab AI Engine</span>
+                  <span className="text-[10px] text-paper/40 uppercase tracking-widest">Pounce Daemon AI Engine</span>
                 </div>
                 <LoadingLogs />
               </div>
@@ -127,7 +127,7 @@ export function TokenGenerator() {
       </div>
 
       {toast && (
-        <div 
+        <div
           className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full border border-white/10 bg-[#151922]/95 px-6 py-3 font-mono text-xs text-amber shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-2"
           style={{
             animation: 'slideUpFadeIn 0.3s ease-out forwards',
@@ -147,7 +147,7 @@ function TicketCard({ token, onShowToast }: { token: Token; onShowToast: (messag
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    const textToCopy = `${token.tagline ? token.tagline + ' — ' : ''}${token.description}\n\n${token.lore}`;
+    const textToCopy = `${token.tagline ? token.tagline + ' | ' : ''}${token.description}\n\n${token.lore}`;
     navigator.clipboard.writeText(textToCopy);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -190,7 +190,7 @@ function TicketCard({ token, onShowToast }: { token: Token; onShowToast: (messag
               <h4 className="font-mono text-xs font-semibold uppercase tracking-widest text-amber">
                 Launch Branding Kit
               </h4>
-              
+
               {/* Slogan */}
               {token.marketingHook && (
                 <div className="mt-4 rounded-xl bg-white/5 border border-white/10 p-4">
@@ -312,7 +312,7 @@ function LoadingLogs() {
   const steps = [
     'Initializing secure handshakes...',
     'Scouting current meme culture indexes...',
-    'Consulting Tickerlab AI Engine (mimo-v2.5-pro)...',
+    'Consulting Pounce Daemon AI Engine (claude fable 5)...',
     'Synthesizing brand colors & visual style guides...',
     'Drafting viral tweet copy & marketing hooks...',
     'Forging token name and ticker symbols...',

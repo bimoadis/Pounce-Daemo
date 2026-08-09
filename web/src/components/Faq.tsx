@@ -3,16 +3,16 @@ import { FadeUp } from './FadeUp';
 
 const FAQS = [
   {
-    q: 'What does Tickerlab actually generate?',
-    a: 'A token concept from your idea: a ticker, a name, a short tagline, hype-style description copy, a one-line piece of lore, and a vibe score from 1–10 — plus a link to pump.fun/create.',
+    q: 'What does Pounce Daemon actually generate?',
+    a: 'A token concept from your idea: a ticker, a name, a short tagline, hype-style description copy, a one-line piece of lore, and a vibe score from 1–10, plus a link to pump.fun/create.',
   },
   {
-    q: 'Does Tickerlab launch the token for me?',
-    a: "No. Tickerlab only writes the concept and copy. Launching, funding, and everything on-chain happens on pump.fun, and that decision is entirely yours.",
+    q: 'Does Pounce Daemon launch the token for me?',
+    a: "No. Pounce Daemon only writes the concept and copy. Launching, funding, and everything on-chain happens on pump.fun, and that decision is entirely yours.",
   },
   {
     q: 'Can I use this from Claude Code?',
-    a: 'Yes — the Skills and MCP sections list instruction files and server configs you can drop into a Claude Code project so your agent can generate concepts directly from the terminal.',
+    a: 'Yes, the Skills and MCP sections list instruction files and server configs you can drop into a Claude Code project so your agent can generate concepts directly from the terminal.',
   },
   {
     q: 'Is this free?',

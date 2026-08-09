@@ -8,7 +8,7 @@ type Token = {
   pumpUrl: string;
 };
 
-const BOOT_LINES = ['tickerlab v1.0.0 initialized', 'engine: megallm connected OK', '----------------------------'];
+const BOOT_LINES = ['pounce daemon v1.0.0 initialized', 'engine: megallm connected OK', '----------------------------'];
 
 export function TerminalDemo({ title = 'forge_generate · live demo' }: { title?: string }) {
   const [idea, setIdea] = useState('AI agents that trade while you sleep');
@@ -79,7 +79,7 @@ export function TerminalDemo({ title = 'forge_generate · live demo' }: { title?
           <span className="h-2.5 w-2.5 rounded-full bg-coral/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-amber/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/70" />
-          <span className="ml-2 font-mono text-[11px] text-paper/40">terminal — tickerlab</span>
+          <span className="ml-2 font-mono text-[11px] text-paper/40">terminal: pounce daemon</span>
         </div>
         <div className="min-h-[110px] rounded-lg bg-black/20 p-4 font-mono text-[13px] leading-relaxed text-paper/70">
           {BOOT_LINES.map((l) => (

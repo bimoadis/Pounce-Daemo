@@ -29,9 +29,9 @@ export default function App() {
 
       <footer className="relative z-10 bg-ink border-t border-white/10 px-6 py-10 font-mono text-xs text-paper/40 md:px-12">
         <p className="mx-auto max-w-2xl md:max-w-none">
-          Tickerlab writes creative token copy from your idea. It doesn't launch tokens, hold funds, or<br />
-          give financial advice — you decide if and how to use the concept on pump.fun. Memecoins are<br />
-          highly speculative; only ever risk what you can afford to lose.
+          Pounce Daemon writes creative token copy from your idea. It doesn't launch tokens, hold funds, or<br />
+          give financial advice, you decide if and how to use the concept on pump.fun. Memecoins are<br />
+          highly speculative; only ever risk what you can afford to lose. Official token: $PNCE.
         </p>
       </footer>
     </div>

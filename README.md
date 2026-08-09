@@ -87,8 +87,8 @@ claude > Use pump_generate to make a token about AI agents that dream
 ## Local Development
 
 ```bash
-git clone https://github.com/bimoadis/Tickerlab
-cd Tickerlab
+git clone https://github.com/bimoadis/Pounce-Daemo
+cd Pounce-Daemo
 cp web/.env.example web/.env
 # Add your ANTHROPIC_API_KEY to web/.env
 npm install

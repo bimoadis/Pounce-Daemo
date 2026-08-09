@@ -1,6 +1,6 @@
-﻿# pump-mcp
+# Pounce Daemon
 
-> MCP server for pump.fun - lets Claude Code generate and launch tokens from your terminal.
+> MCP server for pump.fun: lets Claude Code generate and launch tokens from your terminal.
 
 I was manually writing pump.fun descriptions with Claude for a few months.
 When MCP support dropped in Claude Code, I wired it up properly.
@@ -10,12 +10,12 @@ Now I just say `pump_generate --idea "my token concept"` and it handles the rest
 ## Install
 
 ```bash
-npx @pump-mcp/server install
+npx @pounce-daemon/server install
 ```
 Or add directly to your project:
 
 ```bash
-npm install @pump-mcp/server
+npm install @pounce-daemon/server
 ```
 
 ## Setup
@@ -74,21 +74,21 @@ claude > Use pump_generate to make a token about AI agents that dream
 
 ```json
 {
-  "ticker": "$DREAM",
-  "name": "Dreaming Agents",
+  "ticker": "$PNCE",
+  "name": "Pounce Daemon",
   "tagline": "agents don't sleep. they process.",
-  "description": "While you sleep, $DREAM agents are running. Processing market data, writing strategies, executing trades. The first token for the agents that never clock out.",
+  "description": "While you sleep, $PNCE agents are running. Processing market data, writing strategies, executing trades. The first token for the agents that never clock out.",
   "lore": "Born in a data center at 3am. Never been offline.",
   "vibeScore": 9,
-  "pumpUrl": "https://pump.fun/create?name=Dreaming+Agents&symbol=DREAM&description=..."
+  "pumpUrl": "https://pump.fun/create?name=Pounce+Daemon&symbol=PNCE&description=..."
 }
 ```
 
 ## Local Development
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/pump-mcp
-cd pump-mcp
+git clone https://github.com/bimoadis/Tickerlab
+cd Tickerlab
 cp web/.env.example web/.env
 # Add your ANTHROPIC_API_KEY to web/.env
 npm install
@@ -112,7 +112,7 @@ Shared server-side logic lives in `web/server/`. There is no separate local back
 
 ## The Token
 
-`$MCP` - the anchor token for this project.
+`$PNCE` - the anchor token for this project.
 
 The protocol that will launch a million tokens needed its own token first.
 
@@ -121,7 +121,7 @@ The protocol that will launch a million tokens needed its own token first.
 ## Repository Layout
 
 ```text
-pump-mcp/
+pounce-daemon/
 ├── pump-mcp-dev-brief/   # documentation-only, not runtime
 ├── web/
 │   ├── index.html

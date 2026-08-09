@@ -51,7 +51,7 @@ export function Navbar({ route, onNavigate }: { route: Route; onNavigate: (r: Ro
         {/* Right Actions */}
         <div className="flex items-center gap-2 shrink-0">
           <a
-            href="https://github.com"
+            href="https://github.com/bimoadis/Tickerlab"
             target="_blank"
             rel="noreferrer"
             className="hidden lg:flex items-center gap-1.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-4 py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300"

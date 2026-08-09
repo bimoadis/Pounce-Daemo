@@ -2,7 +2,7 @@
 
 ## Status
 
-`pump-mcp-dev-brief/` is a reference pack only.
+`pounce-daemon-dev-brief/` is a reference pack only.
 
 Do not build local runtime from the older `packages/server` plan.
 

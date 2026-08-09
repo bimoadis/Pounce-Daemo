@@ -2,7 +2,7 @@
 
 Tanggal audit: 2026-05-13
 
-Dokumen ini membandingkan implementasi repo dengan brief di `pump-mcp-dev-brief/`.
+Dokumen ini membandingkan implementasi repo dengan brief di `pounce-daemon-dev-brief/`.
 
 ## Ringkasan
 

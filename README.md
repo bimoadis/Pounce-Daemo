@@ -124,7 +124,7 @@ The protocol that will launch a million tokens needed its own token first.
 
 ```text
 pounce-daemon/
-├── pump-mcp-dev-brief/   # documentation-only, not runtime
+├── pounce-daemon-dev-brief/   # documentation-only, not runtime
 ├── web/
 │   ├── index.html
 │   ├── vite.config.js

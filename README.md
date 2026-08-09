@@ -1,6 +1,8 @@
 # Pounce Daemon
 
 > MCP server for pump.fun: lets Claude Code generate and launch tokens from your terminal.
+>
+> Live Website: [pouncedaemon.fun](https://pouncedaemon.fun/)
 
 I was manually writing pump.fun descriptions with Claude for a few months.
 When MCP support dropped in Claude Code, I wired it up properly.

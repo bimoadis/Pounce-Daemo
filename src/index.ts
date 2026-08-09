@@ -7,7 +7,7 @@
  */
 
 export const narrativeEntrypoint = {
-  packageName: "@pump-mcp/server",
+  packageName: "@pounce-daemon/server",
   status: "placeholder-only",
   runtimeOwner: "web/",
 };

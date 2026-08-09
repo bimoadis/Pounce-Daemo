@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "pump-fun": {
+    "pounce-daemon": {
       "type": "http",
-      "url": "https://mcp.pumpmcp.fun/sse"
+      "url": "https://mcp.pouncedaemon.fun/sse"
     }
   }
 }

@@ -48,10 +48,10 @@ Those concepts may still appear in marketing copy, examples, or historical plann
 
 It is acceptable for the website to present:
 
-- install commands like `npx @pump-mcp/server install`
+- install commands like `npx @pounce-daemon/server install`
 - CLAUDE.md snippets
 - `.mcp.json` snippets
-- references to `mcp.pumpmcp.fun/sse`
+- references to `mcp.pouncedaemon.fun/sse`
 
 That material is part of the product fiction / external-service positioning of the landing page.
 

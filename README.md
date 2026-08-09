@@ -24,8 +24,8 @@ Add to your `CLAUDE.md`:
 
 ```yaml
 mcp_servers:
-  - name: "pump-fun"
-    url: "https://mcp.pumpmcp.fun/sse"
+  - name: "pounce-daemon"
+    url: "https://mcp.pouncedaemon.fun/sse"
     type: http
 ```
 
@@ -34,9 +34,9 @@ Or add `.mcp.json` to your repo root:
 ```json
 {
   "mcpServers": {
-    "pump-fun": {
+    "pounce-daemon": {
       "type": "http",
-      "url": "https://mcp.pumpmcp.fun/sse"
+      "url": "https://mcp.pouncedaemon.fun/sse"
     }
   }
 }
@@ -116,7 +116,7 @@ Shared server-side logic lives in `web/server/`. There is no separate local back
 
 The protocol that will launch a million tokens needed its own token first.
 
-- [pumpmcp.fun](https://pumpmcp.fun)
+- [pouncedaemon.fun](https://pouncedaemon.fun)
 
 ## Repository Layout
 

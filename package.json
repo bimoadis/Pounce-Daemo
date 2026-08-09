@@ -1,5 +1,5 @@
 {
-  "name": "pump-mcp",
+  "name": "pounce-daemon",
   "version": "1.0.0",
   "private": true,
   "description": "MCP server for pump.fun with landing page",

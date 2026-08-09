@@ -1,4 +1,4 @@
 mcp_servers:
-  - name: "pump-fun"
-    url: "https://mcp.pumpmcp.fun/sse"
+  - name: "pounce-daemon"
+    url: "https://mcp.pouncedaemon.fun/sse"
     type: http

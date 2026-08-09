@@ -33,7 +33,7 @@ Repo ini sudah mengikuti aturan utama brief:
   - install command `npx @pump-mcp/server install`
   - snippet `CLAUDE.md`
   - snippet `.mcp.json`
-  - referensi endpoint `https://mcp.pumpmcp.fun/sse`
+  - referensi endpoint `https://mcp.pouncedaemon.fun/sse`
   - penjelasan tool `pump_generate`, `pump_trending`, `pump_launch`
   - generator UI yang memanggil `/api/generate`
 

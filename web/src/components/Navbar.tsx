@@ -12,14 +12,14 @@ const LINKS: { route: Route; label: string }[] = [
 export function Navbar({ route, onNavigate }: { route: Route; onNavigate: (r: Route) => void }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-12 flex justify-center">
-      <div className="w-full max-w-7xl flex items-center justify-between px-4 py-2.5 md:px-6 md:py-3">
+      <div className="w-full flex items-center justify-between px-4 py-2.5 md:px-6 md:py-3">
         {/* Logo */}
         <button
           onClick={() => onNavigate('home')}
-          className="flex items-center gap-2 font-display text-sm font-bold tracking-wider text-white uppercase shrink-0"
+          className="flex items-center gap-0 font-display text-sm font-bold tracking-wider text-white uppercase shrink-0"
         >
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-transparent overflow-hidden">
-            <img src="/logo.svg" alt="Tickerlab Logo" className="h-full w-full object-contain" />
+          <div className="relative flex h-[52px] w-[52px] items-center justify-center rounded-lg bg-transparent overflow-hidden">
+            <img src="/logo.png" alt="Tickerlab Logo" className="h-full w-full object-contain" />
           </div>
           <span className="tracking-[0.25em] font-extrabold text-xs hidden sm:inline">TICKERLAB</span>
         </button>
@@ -32,9 +32,8 @@ export function Navbar({ route, onNavigate }: { route: Route; onNavigate: (r: Ro
               <button
                 key={link.route}
                 onClick={() => onNavigate(link.route)}
-                className={`relative px-3.5 py-1.5 md:px-5 md:py-2 text-[10px] md:text-xs font-semibold uppercase tracking-wider rounded-full transition-colors duration-300 shrink-0 ${
-                  isActive ? 'text-black z-10' : 'text-white/60 hover:text-white'
-                }`}
+                className={`relative px-3.5 py-1.5 md:px-5 md:py-2 text-[10px] md:text-xs font-semibold uppercase tracking-wider rounded-full transition-colors duration-300 shrink-0 ${isActive ? 'text-black z-10' : 'text-white/60 hover:text-white'
+                  }`}
               >
                 {isActive && (
                   <motion.div

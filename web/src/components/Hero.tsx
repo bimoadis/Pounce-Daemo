@@ -53,7 +53,7 @@ export function Hero() {
             y={12}
           >
             <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-amber/30 bg-amber/10 px-3 py-1 font-mono text-[10px] md:text-xs uppercase tracking-widest text-amber">
-              <span>Official Token: $PNCE</span>
+              <span>CA: HKxpGGAfN3dE7AjQrJXbxUPf3eeAmGC6kwiGFFVbpump</span>
             </div>
           </FadeUp>
           <h2

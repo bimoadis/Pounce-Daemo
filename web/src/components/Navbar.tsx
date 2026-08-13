@@ -63,7 +63,7 @@ export function Navbar({ route, onNavigate }: { route: Route; onNavigate: (r: Ro
           </a>
 
           <a
-            href="https://pump.fun"
+            href="https://pump.fun/coin/HKxpGGAfN3dE7AjQrJXbxUPf3eeAmGC6kwiGFFVbpump"
             target="_blank"
             rel="noreferrer"
             className="bg-amber text-black hover:bg-neutral-200 border border-transparent px-4 py-2 md:px-5 md:py-2 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:scale-[1.02]"

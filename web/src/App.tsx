@@ -31,7 +31,7 @@ export default function App() {
         <p className="mx-auto max-w-2xl md:max-w-none">
           Pounce Daemon writes creative token copy from your idea. It doesn't launch tokens, hold funds, or<br />
           give financial advice, you decide if and how to use the concept on pump.fun. Memecoins are<br />
-          highly speculative; only ever risk what you can afford to lose. Official token: $PNCE.
+          highly speculative; only ever risk what you can afford to lose. CA: HKxpGGAfN3dE7AjQrJXbxUPf3eeAmGC6kwiGFFVbpump.
         </p>
       </footer>
     </div>

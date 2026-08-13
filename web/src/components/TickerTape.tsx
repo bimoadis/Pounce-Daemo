@@ -2,7 +2,7 @@ const SAMPLE_TICKERS = [
   '$DREAM · Dreaming Agents · vibe 8/10',
   '$LOOP · Recursion Rex · vibe 6/10',
   '$SOGGY · Wet Paper Ticket · vibe 9/10',
-  '$PNCE · Pounce Daemon · vibe 7/10',
+  '$PNCE · Pounce Daemon · vibe 10/10',
   '$GHOST · Overheard Ghost · vibe 5/10',
   '$NAP · Chronic Napper · vibe 10/10',
 ];
